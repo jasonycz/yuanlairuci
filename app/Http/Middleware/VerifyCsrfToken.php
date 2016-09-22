@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        //
+        // CSRF 排除微信相关路由
+        '/wechat',
     ];
 }
