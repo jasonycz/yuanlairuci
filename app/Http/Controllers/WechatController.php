@@ -35,7 +35,7 @@ class WechatController extends Controller
 		            	return '欢迎加入缘来如此';
 		            }
 		            if($message->Event == 'CLICK'){
-		            	if($message->EventKey == 'V1001_TODAY_MUSIC'){
+		            	if($message->EventKey == 'V1001_LIKE_WEBSITE'){
 		            		return 'http://www.xiaoyuanromance.top';
 		            	}
 		            }
@@ -48,8 +48,8 @@ class WechatController extends Controller
 		            break;
 		        case 'image':
 		            # 图片消息...
-		            $image = new Image(['media_id'=>'PfycPRapQqZdCoHdNAuscKCh-TLy42Uacbsfs6q9Kyo']);
-		            $wechat->staff->message($image)->to($message->FromUserName)->send();
+		            // $image = new Image(['media_id'=>'PfycPRapQqZdCoHdNAuscIJdePmJ_n7je06D4LsAXEY']);
+		            // $wechat->staff->message($image)->to($message->FromUserName)->send();
 
 		            return '图片回复';
 		            break;
@@ -60,12 +60,11 @@ class WechatController extends Controller
 		            # 视频消息...
 		            break;
 		        case 'location':
-		            # 坐标消息...
+		        	return "你的具体位置是:\r\n".$message->Label;
 		            break;
 		        case 'link':
 		            # 链接消息...
 		            break;
-		        // ... 其它消息
 		        default:
 		            return '欢迎访问缘来如此';
 		            break;
